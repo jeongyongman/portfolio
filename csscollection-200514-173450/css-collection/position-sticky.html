@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_Block#identifying_the_containing_block -->
+    <!-- https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_Block -->
+    <style>
+      .container {
+        position: relative; /* 그 박스안에서 변경이 일어난다 */
+        top: 100px;
+        left: 100px;
+        background-color: yellow;
+      }
+
+      .box {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 20px;
+        background-color: chocolate;
+      }
+
+      .box2 {
+        background-color: hotpink;
+        position: sticky; /* 마우스 스크롤시에 위에 붙는 느낌 */
+        top: 20px; /* 설정해줘야 된다 */
+        left: 20px; /* 설정해줘야 된다 */
+      }
+
+      .box3 {
+        background-color: blue;
+        position: fixed; /* 부모로부터 빠져 나와서 viewport 에 고정 */
+        top: 20px;
+        left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box box1"></div>
+      <div class="box box2"></div>
+      <div class="box box3"></div>
+      <div class="box box4"></div>
+      <div class="box box5"></div>
+      <div class="box box6"></div>
+      <div class="box box7"></div>
+      <div class="box box8"></div>
+      <div class="box box9"></div>
+      <div class="box box10"></div>
+      <p>
+        포지션이 static 이나 relative 나 sticky 이면 <br>
+        그 안에 들어 있는 그 박스 안에서 변경이 일어나게 되고 <br>
+        포지션이 absolute 이면 들어있는 근접한 부모박스들 중에 <br>
+        static 이 아닌 박스에 위치변경이 일어나고 <br>
+        fixed 이면 들어 있는 박스랑 상관없이 그냥 viewport <br>
+        즉 브라우저에서 보여주는 <br>
+        viewport 에서 포지션 변경이 일어난다 <br>
+      </p>
+      <p>
+        sticky는 이렇게 기존에 들어 있던 자리를 유지하다가 <br>
+        이렇게 스크롤링이 되면서 더 이상 보여지지 않는 시점에 <br>
+        이렇게 우리가 지정한 top left 포지션에 붙어 있고요 <br>
+        그 자리를 그대로 공간을 유지하고 있기 때문에 <br>
+        다른 요소들도 이렇게 그 자리에 그대로 있는 게 보이죠 <br>
+        <pre>
+          .box2 {
+            background-color: hotpink;
+            position: sticky; /* 그 박스안에서 변경이 일어난다 */
+            top: 20px;
+            left: 20px;
+          }
+        </pre>
+        </p>
+        <p>
+          fixed 는 들어있는 부모와는 상관없이 <br>
+          이 viewport 안에서 포지션이 일어나기 때문에 <br>
+          이렇게 빠져나와서 여기 0,0 이 지정이 되는 걸 볼 수가 있어요 <br>
+          <pre>
+            .box3 {
+              background-color: blue;
+              position: fixed;
+              top: 20px;
+              left: 20px;
+            }
+          </pre>
+        </p>
+    </div>
+  </body>
+</html>
