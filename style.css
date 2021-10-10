@@ -96,22 +96,31 @@ p {
   margin: 4px 0;
 }
 
+/* Navbar */
 #navbar {
+  position: fixed;
+  width: 100%;
   display: flex;
   justify-content: space-between; /* 중심축 방향 정렬 */
-  background-color: var(--color-pink);
   align-items: center; /* 중심축 수직방향 정렬 */
   color: var(--color-white);
   padding: 16px;
+  background-color: transparent;
+  transition: all var(--animation-duration) ease-in-out;
 }
 
-.navbar__menu {
-  display: flex;
+#navbar.navbar--dark {
+  background-color: var(--color-pink);
+  padding: 8px;
 }
 
 .navbar__logo {
   font-size: var(--font-medium);
   font-weight: var(--weight-semi-bold);
+}
+
+.navbar__menu {
+  display: flex;
 }
 
 .navbar__menu__item {
@@ -143,6 +152,7 @@ p {
 #home {
   background: url("imgs/homebackground.png") center/cover no-repeat;
   padding: 40px;
+  padding-top: 120px;
   text-align: center;
 }
 
